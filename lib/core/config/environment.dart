@@ -1,15 +1,28 @@
-abstract class Environment {
-  static const dev = 'dev';
-  static const staging = 'staging';
-  static const production = 'production';
-  
-  static String get current => const String.fromEnvironment(
-    'ENVIRONMENT',
-    defaultValue: dev,
-  );
-  
-  static bool get isDev => current == dev;
-  static bool get isStaging => current == staging;
-  static bool get isProduction => current == production;
-}
+enum Environment {
+  dev('dev'),
+  staging('staging'),
+  production('production');
 
+  const Environment(this.value);
+  
+  final String value;
+  
+  static Environment get current {
+    const envValue = String.fromEnvironment(
+      'ENVIRONMENT',
+      defaultValue: 'dev',
+    );
+    
+    return Environment.values.firstWhere(
+      (env) => env.value == envValue,
+      orElse: () => Environment.dev,
+    );
+  }
+  
+  static bool get isDev => current == Environment.dev;
+  static bool get isStaging => current == Environment.staging;
+  static bool get isProduction => current == Environment.production;
+  
+  @override
+  String toString() => value;
+}
