@@ -14,10 +14,10 @@ class LoginPage extends StatelessWidget {
         listener: (context, state) {
           if (state is AuthSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Welcome, ${state.user.name ?? 'User'}!')),
+              SnackBar(content: Text('Welcome, ${state.user.name}!')),
             );
-          
-             context.go('/home');
+
+            context.go('/home');
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),
@@ -53,7 +53,6 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     const Spacer(),
-              
                     if (state is AuthLoading)
                       const CircularProgressIndicator()
                     else
@@ -67,7 +66,7 @@ class LoginPage extends StatelessWidget {
                             side: const BorderSide(color: Colors.grey),
                           ),
                         ),
-                        icon:  const Icon(Icons.login),
+                        icon: const Icon(Icons.login),
                         label: const Text(
                           'Sign in with Google',
                           style: TextStyle(fontSize: 16),

@@ -1,4 +1,3 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/models/auth_user.dart';
 import '../../domain/interfaces/auth_service.dart';
@@ -12,6 +11,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this.googleAuthService) : super(AuthInitial()) {
     on<SignInWithGoogleEvent>(_onSignInWithGoogle);
     on<SignOutEvent>(_onSignOut);
+    on<CheckAuthStatusEvent>(_onCheckAuthStatus);
+
+    add(CheckAuthStatusEvent());
+  }
+
+  Future<void> _onCheckAuthStatus(
+    CheckAuthStatusEvent event,
+    Emitter<AuthState> emit,
+  ) async {
+    try {
+      final currentUser = await googleAuthService.getCurrentUser();
+
+      if (currentUser != null) {
+        emit(AuthSuccess(currentUser));
+      } else {
+        emit(AuthInitial());
+      }
+    } catch (e) {
+      emit(AuthFailure(
+          'Failed to check authentication status: ${e.toString()}'));
+    }
   }
 
   Future<void> _onSignInWithGoogle(

@@ -1,4 +1,3 @@
-
 import 'package:get_it/get_it.dart';
 import 'package:travaly_app/core/config/app_config.dart';
 import 'package:travaly_app/core/config/dev_config.dart';
@@ -16,8 +15,8 @@ void setupDependencies() {
 
   sl.registerLazySingleton<AppConfig>(() => config);
   sl.registerLazySingleton<NetworkClient>(
-      () => DioNetworkClient(sl<AppConfig>(),logger));
-     setupAuthLocator();
+      () => DioNetworkClient(sl<AppConfig>(), logger));
+  setupAuthLocator();
 }
 
 AppConfig _getConfigForEnvironment() {
@@ -28,11 +27,7 @@ AppConfig _getConfigForEnvironment() {
       return StagingConfig();
     case Environment.production:
       return ProdConfig();
-    default: 
+    default:
       return DevConfig();
   }
 }
-
-
-
-

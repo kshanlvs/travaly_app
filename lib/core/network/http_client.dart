@@ -18,11 +18,11 @@ class HttpNetworkClient implements NetworkClient {
       'Accept': 'application/json',
       'X-API-Key': _config.apiKey,
     };
-    
+
     if (additionalHeaders != null) {
       headers.addAll(additionalHeaders.cast<String, String>());
     }
-    
+
     return headers;
   }
 
@@ -36,18 +36,20 @@ class HttpNetworkClient implements NetworkClient {
       final uri = Uri.parse(_config.baseUrl + path).replace(
         queryParameters: queryParameters?.cast<String, String>(),
       );
-      
+
       if (_config.enableLogging) {
         _logger.d('🌐 HTTP GET: $uri');
       }
-      
-      final response = await _client.get(
-        uri,
-        headers: _getHeaders(headers),
-      ).timeout(
-        Duration(milliseconds: _config.connectTimeout),
-      );
-      
+
+      final response = await _client
+          .get(
+            uri,
+            headers: _getHeaders(headers),
+          )
+          .timeout(
+            Duration(milliseconds: _config.connectTimeout),
+          );
+
       return _handleResponse(response);
     } catch (e) {
       throw _handleError(e);
@@ -65,19 +67,21 @@ class HttpNetworkClient implements NetworkClient {
       final uri = Uri.parse(_config.baseUrl + path).replace(
         queryParameters: queryParameters?.cast<String, String>(),
       );
-      
+
       if (_config.enableLogging) {
         _logger.d('🌐 HTTP POST: $uri\nData: $data');
       }
-      
-      final response = await _client.post(
-        uri,
-        headers: _getHeaders(headers),
-        body: jsonEncode(data),
-      ).timeout(
-        Duration(milliseconds: _config.connectTimeout),
-      );
-      
+
+      final response = await _client
+          .post(
+            uri,
+            headers: _getHeaders(headers),
+            body: jsonEncode(data),
+          )
+          .timeout(
+            Duration(milliseconds: _config.connectTimeout),
+          );
+
       return _handleResponse(response);
     } catch (e) {
       throw _handleError(e);
@@ -88,9 +92,10 @@ class HttpNetworkClient implements NetworkClient {
 
   dynamic _handleResponse(http.Response response) {
     if (_config.enableLogging) {
-      _logger.i('✅ HTTP RESPONSE: ${response.statusCode} ${response.request?.url}');
+      _logger.i(
+          '✅ HTTP RESPONSE: ${response.statusCode} ${response.request?.url}');
     }
-    
+
     if (response.statusCode >= 200 && response.statusCode < 300) {
       if (response.body.isEmpty) return null;
       return jsonDecode(response.body);
@@ -111,15 +116,21 @@ class HttpNetworkClient implements NetworkClient {
       return NetworkException.unknown(error.toString());
     }
   }
-  
+
   @override
-  Future delete(String path, {data, Map<String, dynamic>? queryParameters, Map<String, dynamic>? headers}) {
+  Future delete(String path,
+      {data,
+      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? headers}) {
     // TODO: implement delete
     throw UnimplementedError();
   }
-  
+
   @override
-  Future put(String path, {data, Map<String, dynamic>? queryParameters, Map<String, dynamic>? headers}) {
+  Future put(String path,
+      {data,
+      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? headers}) {
     // TODO: implement put
     throw UnimplementedError();
   }

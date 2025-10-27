@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:travaly_app/feature/auth/presentation/pages/home_page.dart';
 import 'package:travaly_app/feature/auth/presentation/pages/login_page.dart';
-
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -13,12 +13,12 @@ final appRouter = GoRouter(
         child: LoginPage(),
       ),
     ),
-    // GoRoute(
-    //   path: '/home',
-    //   name: 'home',
-    //   pageBuilder: (context, state) => const MaterialPage(
-    //     child: HomePage(),
-    //   ),
-    // ),
+    GoRoute(
+      path: '/home',
+      name: 'home',
+      pageBuilder: (context, state) => const MaterialPage(
+        child: HomePage(),
+      ),
+    ),
   ],
 );

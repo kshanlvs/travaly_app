@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HotelEase Dashboard'),
+        title: const Text('MyTravaly'),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: const Center(
-        child: Text('Welcome to HotelEase! 🎉'),
+        child: Text('Welcome to Travaly! 🎉'),
       ),
     );
   }

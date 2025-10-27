@@ -1,5 +1,3 @@
-
-
 import 'package:travaly_app/feature/auth/domain/models/auth_user.dart';
 
 abstract class GoogleAuthService {

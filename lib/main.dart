@@ -6,7 +6,7 @@ import 'package:travaly_app/core/dependency_injection/service_locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-      await dotenv.load();
+  await dotenv.load();
   await Firebase.initializeApp();
   setupDependencies();
   runApp(const HotelBookingApp());

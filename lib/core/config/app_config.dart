@@ -9,7 +9,7 @@ abstract class AppConfig {
   bool get enableLogging;
   int get connectTimeout;
   int get receiveTimeout;
-  
+
   factory AppConfig() {
     switch (Environment.current) {
       case Environment.dev:
