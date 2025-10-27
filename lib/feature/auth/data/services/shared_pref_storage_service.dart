@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import '../../domain/interfaces/user_storage_service.dart';
-import '../../domain/models/auth_user.dart';
-import '../../../../core/storage/key_value_storage.dart'; // Import abstraction
+import 'package:travaly_app/feature/auth/domain/interfaces/user_storage_service.dart';
+import 'package:travaly_app/feature/auth/domain/models/auth_user.dart';
+import 'package:travaly_app/core/storage/key_value_storage.dart'; // Import abstraction
 
 class SharedPrefsStorageService implements UserStorageService {
   static const String _userKey = 'currentUser';
-  final KeyValueStorage _storage; // Depend on abstraction
+  final KeyValueStorage _storage;
 
-  SharedPrefsStorageService(this._storage); // Inject dependency
+  SharedPrefsStorageService(this._storage);
 
   @override
   Future<void> storeUser(AuthUser user) async {

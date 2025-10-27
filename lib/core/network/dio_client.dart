@@ -41,7 +41,8 @@ class DioNetworkClient implements NetworkClient {
         onResponse: (response, handler) {
           if (_config.enableLogging) {
             _logger.i(
-              'RESPONSE: ${response.statusCode} ${response.requestOptions.uri}\n'
+              'RESPONSE: ${response.statusCode}'
+              ' ${response.requestOptions.uri}\n'
               'Data: ${response.data}',
             );
           }
@@ -50,7 +51,8 @@ class DioNetworkClient implements NetworkClient {
         onError: (DioException error, handler) {
           if (_config.enableLogging) {
             _logger.e(
-              'ERROR: ${error.type} ${error.response?.statusCode} ${error.requestOptions.uri}\n'
+              'ERROR: ${error.type} ${error.response?.statusCode}'
+              ' ${error.requestOptions.uri}\n'
               'Message: ${error.message}\n'
               'Response: ${error.response?.data}',
             );

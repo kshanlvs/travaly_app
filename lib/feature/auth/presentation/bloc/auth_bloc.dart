@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/models/auth_user.dart';
-import '../../domain/interfaces/auth_service.dart';
+import 'package:travaly_app/feature/auth/domain/models/auth_user.dart';
+import 'package:travaly_app/feature/auth/domain/interfaces/auth_service.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
