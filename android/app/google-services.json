@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "35509025483",
+    "project_id": "travaly-project",
+    "storage_bucket": "travaly-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35509025483:android:ce7ed55fca24945185794e",
+        "android_client_info": {
+          "package_name": "com.example.travaly_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35509025483-42il9dtqikj6kabkbqn76agqftfap1np.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travaly_app",
+            "certificate_hash": "962e2327ee3fb63f2ea3da98da2dba08313e608d"
+          }
+        },
+        {
+          "client_id": "35509025483-mshgj72n9a96g11le4dm84r2e2re3jmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl_wnkBnBpktbC32ZWz9ILbwo_kdmfaHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35509025483-mshgj72n9a96g11le4dm84r2e2re3jmk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "35509025483-1vqf2pd7id5k1bgqu5eqcf4q41v3ojdg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travalyApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
