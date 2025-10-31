@@ -4,10 +4,13 @@ import 'package:travaly_app/core/config/dev_config.dart';
 import 'package:travaly_app/core/config/environment.dart';
 import 'package:travaly_app/core/config/prod_config.dart';
 import 'package:travaly_app/core/config/staging_config.dart';
+import 'package:travaly_app/core/device/di/device_service_locator.dart';
 import 'package:travaly_app/core/network/dio_client.dart';
 import 'package:travaly_app/core/network/logger.dart';
 import 'package:travaly_app/core/network/network_client.dart';
+import 'package:travaly_app/core/storage/shared_preference_storage.dart';
 import 'package:travaly_app/feature/auth/di/auth_service_locator.dart';
+import 'package:travaly_app/feature/hotel/di/hotel_service_locator.dart';
 
 final sl = GetIt.instance;
 void setupDependencies() {
@@ -15,8 +18,10 @@ void setupDependencies() {
 
   sl.registerLazySingleton<AppConfig>(() => config);
   sl.registerLazySingleton<NetworkClient>(
-      () => DioNetworkClient(sl<AppConfig>(), logger));
+      () => DioNetworkClient(sl<AppConfig>(), logger,sl<SharedPrefsStorage>()));
   setupAuthLocator();
+  setupDeviceLocator(); 
+
 }
 
 AppConfig _getConfigForEnvironment() {

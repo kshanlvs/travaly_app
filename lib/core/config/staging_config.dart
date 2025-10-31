@@ -2,7 +2,7 @@ import 'package:travaly_app/core/config/app_config.dart';
 
 class StagingConfig implements AppConfig {
   @override
-  String get baseUrl => 'https://api.staging.hotelbooking.com';
+  String get baseUrl => 'https://api.mytravaly.com';
 
   @override
   String get apiKey => 'staging_api_key_456';

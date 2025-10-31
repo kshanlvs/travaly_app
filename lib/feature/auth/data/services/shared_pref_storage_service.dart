@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:travaly_app/feature/auth/domain/interfaces/user_storage_service.dart';
 import 'package:travaly_app/feature/auth/domain/models/auth_user.dart';
-import 'package:travaly_app/core/storage/key_value_storage.dart'; // Import abstraction
+import 'package:travaly_app/core/storage/key_value_storage.dart';
 
 class SharedPrefsStorageService implements UserStorageService {
   static const String _userKey = 'currentUser';

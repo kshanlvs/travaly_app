@@ -48,6 +48,7 @@ class GoogleAuthServiceImpl implements GoogleAuthService {
     await _auth.signOut();
     await _googleSignIn.signOut();
     await _storage.clearUser();
+
   }
 
   @override

@@ -3,14 +3,19 @@ import 'package:logger/logger.dart';
 import 'package:travaly_app/core/config/app_config.dart';
 import 'package:travaly_app/core/network/network_client.dart';
 import 'package:travaly_app/core/network/network_exception.dart';
+import 'package:travaly_app/core/storage/shared_preference_storage.dart'; // Import your storage
 
 class DioNetworkClient implements NetworkClient {
   final Dio _dio;
   final Logger _logger;
   final AppConfig _config;
+  final SharedPrefsStorage _localStorage;
 
-  DioNetworkClient(this._config, this._logger)
-      : _dio = Dio(
+  DioNetworkClient(
+    this._config,
+    this._logger,
+    this._localStorage, 
+  ) : _dio = Dio(
           BaseOptions(
             baseUrl: _config.baseUrl,
             connectTimeout: Duration(milliseconds: _config.connectTimeout),
@@ -28,7 +33,13 @@ class DioNetworkClient implements NetworkClient {
   void _setupInterceptors() {
     _dio.interceptors.add(
       InterceptorsWrapper(
-        onRequest: (options, handler) {
+        onRequest: (options, handler) async {
+      
+          final visitorToken = await _localStorage.getString('visitors_token');
+          if (visitorToken != null && visitorToken.isNotEmpty) {
+            options.headers['visitortoken'] = visitorToken;
+          }
+
           if (_config.enableLogging) {
             _logger.d(
               'REQUEST: ${options.method} ${options.uri}\n'
