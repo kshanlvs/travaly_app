@@ -8,6 +8,8 @@ import 'package:travaly_app/feature/hotel/data/repositories/hotel_repositories.d
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_bloc.dart';
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_event.dart';
 import 'package:travaly_app/feature/hotel/presentation/widgets/hotel_card.dart';
+import 'package:travaly_app/feature/hotel/presentation/widgets/hotel_card_shimmer.dart';
+import 'package:travaly_app/core/constants/app_constants.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,7 +25,7 @@ class HomePage extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.scaffoldBackground,
         body: BlocProvider(
           create: (context) => HotelBloc(hotelRepository: sl<HotelRepository>())
             ..add(
@@ -45,25 +47,28 @@ class HomePage extends StatelessWidget {
   Widget _buildBottomNavigationBar() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.cardBackground,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
+            color: AppColors.black.withOpacity(0.1),
+            blurRadius: AppConstants.cardElevationL,
             offset: const Offset(0, -2),
           ),
         ],
       ),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppConstants.spacingXXXL,
+            vertical: AppConstants.spacingL,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildNavItem(Icons.home_filled, 'Home', isActive: true),
-              _buildNavItem(Icons.bookmark, 'Book'),
-              _buildNavItem(Icons.card_travel, 'Trips'),
-              _buildNavItem(Icons.person, 'Profile'),
+              _buildNavItem(Icons.home_filled, AppText.home, isActive: true),
+              _buildNavItem(Icons.bookmark, AppText.book),
+              _buildNavItem(Icons.card_travel, AppText.trips),
+              _buildNavItem(Icons.person, AppText.profile),
             ],
           ),
         ),
@@ -77,15 +82,15 @@ class HomePage extends StatelessWidget {
       children: [
         Icon(
           icon,
-          color: isActive ? const Color(0xFF2C5364) : Colors.grey,
-          size: 24,
+          color: isActive ? AppColors.primaryColor : AppColors.gray500,
+          size: AppConstants.iconSizeL,
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: AppConstants.spacingXS),
         Text(
           label,
           style: TextStyle(
-            fontSize: 12,
-            color: isActive ? const Color(0xFF2C5364) : Colors.grey,
+            fontSize: AppConstants.fontSizeS,
+            color: isActive ? AppColors.primaryColor : AppColors.gray500,
             fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
           ),
         ),
@@ -103,64 +108,69 @@ class _HomeContent extends StatelessWidget {
       slivers: [
         // Header Section
         SliverAppBar(
-          backgroundColor: Colors.white,
-          expandedHeight: 200,
+          backgroundColor: AppColors.scaffoldBackground,
+          expandedHeight: AppConstants.imageHeightXL,
           flexibleSpace: FlexibleSpaceBar(
             background: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xFF0F2027), Color(0xFF2C5364)],
+                  colors: [AppColors.primaryDark, AppColors.primaryColor],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 50),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppConstants.spacingXXL,
+                vertical: AppConstants.spacingXXXL,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Your Gateway to',
+                  Text(
+                    AppText.yourGatewayTo,
                     style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 16,
+                      color: AppColors.white.withOpacity(0.7),
+                      fontSize: AppConstants.fontSizeL,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
+                  const SizedBox(height: AppConstants.spacingXS),
                   const Text(
-                    'Luxury Hotel',
+                    AppText.luxuryHotel,
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
+                      color: AppColors.white,
+                      fontSize: AppConstants.fontSizeDisplayS,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppConstants.spacingL),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Good Morning,',
+                            AppText.goodMorning,
                             style: TextStyle(
-                              color: Colors.white70,
-                              fontSize: 14,
+                              color: AppColors.white.withOpacity(0.7),
+                              fontSize: AppConstants.fontSizeM,
                             ),
                           ),
-                          Text(
+                          const SizedBox(height: AppConstants.spacingXS),
+                          const Text(
                             'Dr Hohn Deo',
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
+                              color: AppColors.white,
+                              fontSize: AppConstants.fontSizeXL,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
                       ),
                       IconButton(
-                        icon: const Icon(Icons.logout, color: Colors.white),
-                        tooltip: 'Logout',
+                        icon: const Icon(Icons.logout, color: AppColors.white),
+                        tooltip: AppText.logout,
                         onPressed: () => _showLogoutDialog(context),
                       ),
                     ],
@@ -174,76 +184,48 @@ class _HomeContent extends StatelessWidget {
         // Search Section
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(24, 24, 24, 16),
+            padding: const EdgeInsets.fromLTRB(
+              AppConstants.spacingXXL,
+              AppConstants.spacingXXL,
+              AppConstants.spacingXXL,
+              AppConstants.spacingL,
+            ),
             child: Material(
-              elevation: 8,
-              shadowColor: Colors.black26,
-              borderRadius: BorderRadius.circular(16),
+              elevation: AppConstants.cardElevationL,
+              shadowColor: AppColors.black.withOpacity(0.26),
+              borderRadius: BorderRadius.circular(AppConstants.borderRadiusL),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Search Your Hotel',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintText: AppText.searchYourHotel,
+                  hintStyle: const TextStyle(color: AppColors.textHint),
                   filled: true,
-                  fillColor: Colors.white,
-                  prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                  fillColor: AppColors.cardBackground,
+                  prefixIcon:
+                      const Icon(Icons.search, color: AppColors.textHint),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius:
+                        BorderRadius.circular(AppConstants.borderRadiusL),
                     borderSide: BorderSide.none,
                   ),
-                  contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: AppConstants.spacingL,
+                    horizontal: AppConstants.spacingXL,
+                  ),
                 ),
               ),
             ),
           ),
         ),
 
-        // Category Chips
-        SliverToBoxAdapter(
-          child: SizedBox(
-            height: 50,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              children: [
-                _buildCategoryChip('Villa', isActive: true),
-                const SizedBox(width: 12),
-                _buildCategoryChip('Popular'),
-                const SizedBox(width: 12),
-                _buildCategoryChip('Hotels'),
-                const SizedBox(width: 12),
-                _buildCategoryChip('Resorts'),
-                const SizedBox(width: 12),
-                _buildCategoryChip('Apartments'),
-              ],
-            ),
-          ),
-        ),
-
-        // Hotels List (Single column)
+        // Hotels List Section
         const SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppConstants.spacingXXL,
+            vertical: AppConstants.spacingL,
+          ),
           sliver: _HotelListSection(),
         ),
       ],
-    );
-  }
-
-  Widget _buildCategoryChip(String label, {bool isActive = false}) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      decoration: BoxDecoration(
-        color: isActive ? const Color(0xFF2C5364) : Colors.grey[100],
-        borderRadius: BorderRadius.circular(20),
-        border: isActive ? null : Border.all(color: Colors.grey[300]!),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: isActive ? Colors.white : Colors.grey[700],
-          fontWeight: FontWeight.w500,
-          fontSize: 14,
-        ),
-      ),
     );
   }
 
@@ -251,21 +233,34 @@ class _HomeContent extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text('Logout', style: TextStyle(fontWeight: FontWeight.w600)),
-        content: const Text('Are you sure you want to log out?'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppConstants.borderRadiusL),
+        ),
+        title: const Text(
+          AppText.logout,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: AppConstants.fontSizeXL,
+          ),
+        ),
+        content: const Text(AppText.confirmLogout),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text(AppText.cancel),
+          ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.redAccent,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              backgroundColor: AppColors.errorColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppConstants.borderRadiusM),
+              ),
             ),
             onPressed: () {
               Navigator.pop(context);
               context.read<AuthBloc>().add(SignOutEvent());
             },
-            child: const Text('Logout'),
+            child: const Text(AppText.logout),
           ),
         ],
       ),
@@ -281,15 +276,14 @@ class _HotelListSection extends StatelessWidget {
     return BlocBuilder<HotelBloc, HotelState>(
       builder: (context, state) {
         return switch (state) {
-          HotelLoading() => const SliverFillRemaining(
-              child: Center(child: CircularProgressIndicator()),
-            ),
-          HotelError(:final message) => SliverFillRemaining(
+          HotelLoading() =>
+            const SliverToBoxAdapter(child: _HotelListShimmer()),
+          HotelError(:final message) => SliverToBoxAdapter(
               child: _buildError(message, context),
             ),
           HotelLoaded(:final hotels) => _buildList(hotels),
-          _ => const SliverFillRemaining(
-              child: Center(child: Text('Finding perfect stays...')),
+          _ => const SliverToBoxAdapter(
+              child: _HotelListShimmer(),
             ),
         };
       },
@@ -298,15 +292,26 @@ class _HotelListSection extends StatelessWidget {
 
   Widget _buildList(List<HotelData> hotels) {
     if (hotels.isEmpty) {
-      return const SliverFillRemaining(
-        child: Center(child: Text('No hotels found.')),
+      return const SliverToBoxAdapter(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(AppConstants.spacingXXL),
+            child: Text(
+              AppText.noHotelsFound,
+              style: TextStyle(
+                fontSize: AppConstants.fontSizeL,
+                color: AppColors.textSecondary,
+              ),
+            ),
+          ),
+        ),
       );
     }
 
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) => Padding(
-          padding: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.only(bottom: AppConstants.spacingL),
           child: HotelCard(hotel: hotels[index]),
         ),
         childCount: hotels.length,
@@ -317,16 +322,32 @@ class _HotelListSection extends StatelessWidget {
   Widget _buildError(String message, BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(AppConstants.spacingXXL),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.error_outline, size: 64, color: Colors.redAccent),
-            const SizedBox(height: 16),
-            Text('Something went wrong', style: Theme.of(context).textTheme.titleMedium),
-            const SizedBox(height: 8),
-            Text(message, textAlign: TextAlign.center, style: const TextStyle(color: Colors.grey)),
-            const SizedBox(height: 16),
+            const Icon(
+              Icons.error_outline,
+              size: AppConstants.iconSizeXXL * 2,
+              color: AppColors.errorColor,
+            ),
+            const SizedBox(height: AppConstants.spacingL),
+            Text(
+              AppText.somethingWentWrong,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontSize: AppConstants.fontSizeXL,
+                  ),
+            ),
+            const SizedBox(height: AppConstants.spacingM),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: AppColors.textSecondary,
+                fontSize: AppConstants.fontSizeM,
+              ),
+            ),
+            const SizedBox(height: AppConstants.spacingL),
             ElevatedButton.icon(
               onPressed: () {
                 context.read<HotelBloc>().add(
@@ -339,14 +360,34 @@ class _HotelListSection extends StatelessWidget {
                       ),
                     );
               },
-              icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              icon: const Icon(Icons.refresh, size: AppConstants.iconSizeM),
+              label: const Text(AppText.retry),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueAccent,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                backgroundColor: AppColors.infoColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(AppConstants.borderRadiusM),
+                ),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _HotelListShimmer extends StatelessWidget {
+  const _HotelListShimmer();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: List.generate(
+        3, // Show 3 shimmer items
+        (index) => const Padding(
+          padding: EdgeInsets.only(bottom: AppConstants.spacingL),
+          child: HotelCardShimmer(),
         ),
       ),
     );

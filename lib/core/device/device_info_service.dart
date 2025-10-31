@@ -29,8 +29,9 @@ class DeviceInfoService {
       "deviceName": androidInfo.device,
       "deviceManufacturer": androidInfo.manufacturer,
       "deviceProduct": androidInfo.product,
-      "deviceSerialNumber": androidInfo.serialNumber.isEmpty ? 'unknown'
-       : androidInfo.serialNumber,
+      "deviceSerialNumber": androidInfo.serialNumber.isEmpty
+          ? 'unknown'
+          : androidInfo.serialNumber,
     };
   }
 

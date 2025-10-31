@@ -1,6 +1,5 @@
 part of 'hotel_bloc.dart';
 
-
 abstract class HotelState {
   const HotelState();
 }
@@ -18,17 +17,16 @@ class HotelLoading extends HotelState {
 // Loaded state - when data is successfully fetched
 class HotelLoaded extends HotelState {
   final List<HotelData> hotels;
-  
+
   const HotelLoaded(this.hotels);
-  
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    
-    return other is HotelLoaded &&
-        listEquals(other.hotels, hotels);
+
+    return other is HotelLoaded && listEquals(other.hotels, hotels);
   }
-  
+
   @override
   int get hashCode => hotels.hashCode;
 }
@@ -36,17 +34,16 @@ class HotelLoaded extends HotelState {
 // Error state - when something goes wrong
 class HotelError extends HotelState {
   final String message;
-  
+
   const HotelError(this.message);
-  
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    
-    return other is HotelError &&
-        other.message == message;
+
+    return other is HotelError && other.message == message;
   }
-  
+
   @override
   int get hashCode => message.hashCode;
 }

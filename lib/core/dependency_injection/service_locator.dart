@@ -17,11 +17,12 @@ void setupDependencies() {
   final config = _getConfigForEnvironment();
 
   sl.registerLazySingleton<AppConfig>(() => config);
-  sl.registerLazySingleton<NetworkClient>(
-      () => DioNetworkClient(sl<AppConfig>(), logger,sl<SharedPrefsStorage>()));
+  sl.registerLazySingleton<NetworkClient>(() =>
+      DioNetworkClient(sl<AppConfig>(), logger, sl<SharedPrefsStorage>()));
   setupAuthLocator();
-  setupDeviceLocator(); 
+  initHotelServiceLocator();
 
+  setupDeviceLocator();
 }
 
 AppConfig _getConfigForEnvironment() {

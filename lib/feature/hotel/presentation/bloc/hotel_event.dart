@@ -1,13 +1,5 @@
 import 'package:flutter/foundation.dart';
 
-
-
-
-
-
-
-
-
 abstract class HotelEvent {
   const HotelEvent();
 }
@@ -31,7 +23,7 @@ class LoadPopularHotelsEvent extends HotelEvent {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    
+
     return other is LoadPopularHotelsEvent &&
         other.limit == limit &&
         other.entityType == entityType &&
@@ -39,7 +31,7 @@ class LoadPopularHotelsEvent extends HotelEvent {
         mapEquals(other.searchTypeInfo, searchTypeInfo) &&
         other.currency == currency;
   }
-  
+
   @override
   int get hashCode {
     return limit.hashCode ^
@@ -59,11 +51,10 @@ class SearchHotelsEvent extends HotelEvent {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    
-    return other is SearchHotelsEvent &&
-        other.query == query;
+
+    return other is SearchHotelsEvent && other.query == query;
   }
-  
+
   @override
   int get hashCode => query.hashCode;
 }

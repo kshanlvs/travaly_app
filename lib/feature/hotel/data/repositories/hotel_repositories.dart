@@ -1,4 +1,3 @@
-
 import 'package:travaly_app/feature/hotel/data/models/hotel_model.dart';
 
 abstract class HotelRepository {

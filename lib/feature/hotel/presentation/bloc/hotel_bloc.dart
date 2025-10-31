@@ -63,7 +63,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
         searchTypeInfo: {
           'country': 'India',
           'state': 'Jharkhand',
-          'city': 'Jamshedpur', 
+          'city': 'Jamshedpur',
         },
         currency: 'INR',
       );
@@ -73,7 +73,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
         final String name = hotel.propertyName?.toLowerCase() ?? '';
         final String city = hotel.propertyAddress?.city?.toLowerCase() ?? '';
         final String state = hotel.propertyAddress?.state?.toLowerCase() ?? '';
-        final String country = hotel.propertyAddress?.country?.toLowerCase() ?? '';
+        final String country =
+            hotel.propertyAddress?.country?.toLowerCase() ?? '';
         final String query = event.query.toLowerCase();
 
         // Search in name, city, state, and country

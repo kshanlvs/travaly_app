@@ -6,10 +6,10 @@ import 'package:travaly_app/feature/hotel/data/repositories/hotel_repository_imp
 final GetIt slHotel = GetIt.instance;
 
 void initHotelServiceLocator() {
-  // Repository
   slHotel.registerLazySingleton<HotelRepository>(() => HotelRepositoryImpl(
         dio: slHotel<NetworkClient>(),
       ));
-  
-  // If you have other hotel-related services, register them here
+  slHotel.registerLazySingleton<HotelRepository>(() => HotelRepositoryImpl(
+        dio: slHotel<NetworkClient>(),
+      ));
 }

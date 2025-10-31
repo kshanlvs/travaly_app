@@ -13,12 +13,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
-
-
     context.read<AuthBloc>().add(CheckAuthStatusEvent());
-    
+
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,30 +43,30 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     const SizedBox(height: 40),
-                    
+
                     // Welcome Section
                     _buildWelcomeSection(context),
-                    
+
                     const SizedBox(height: 60),
-                    
+
                     // Illustration
                     _buildIllustration(context),
-                    
+
                     const SizedBox(height: 60),
-                    
+
                     // Google Sign In Button
                     if (state is AuthLoading)
                       _buildLoadingButton()
                     else
                       _buildGoogleSignInButton(context),
-                    
+
                     const SizedBox(height: 30),
-                    
+
                     // Alternative Options
                     _buildAlternativeOptions(context),
-                    
+
                     const SizedBox(height: 40),
-                    
+
                     // Footer
                     _buildFooter(context),
                   ],
@@ -86,18 +85,18 @@ class _LoginPageState extends State<LoginPage> {
         Text(
           "Welcome Back!",
           style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF2D3748),
-          ),
+                fontWeight: FontWeight.w700,
+                color: const Color(0xFF2D3748),
+              ),
         ),
         const SizedBox(height: 16),
         Text(
           "Sign in now and keep earning exciting rewards for your travel experiences",
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: const Color(0xFF718096),
-            height: 1.6,
-          ),
+                color: const Color(0xFF718096),
+                height: 1.6,
+              ),
         ),
       ],
     );
@@ -143,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          
+
           // Main illustration content
           Center(
             child: Column(
@@ -173,9 +172,9 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   "MyTravaly",
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: const Color(0xFF2D3748),
-                  ),
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xFF2D3748),
+                      ),
                 ),
               ],
             ),
@@ -228,9 +227,9 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 "Continue with Google",
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: const Color(0xFF2D3748),
-                ),
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xFF2D3748),
+                    ),
               ),
             ],
           ),
@@ -279,8 +278,8 @@ class _LoginPageState extends State<LoginPage> {
               child: Text(
                 "More options",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: const Color(0xFF718096),
-                ),
+                      color: const Color(0xFF718096),
+                    ),
               ),
             ),
             Expanded(
@@ -291,9 +290,9 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ],
         ),
-        
+
         const SizedBox(height: 24),
-        
+
         // Alternative sign-in options
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -379,9 +378,9 @@ class _LoginPageState extends State<LoginPage> {
         Text(
           label,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: const Color(0xFF718096),
-            fontWeight: FontWeight.w500,
-          ),
+                color: const Color(0xFF718096),
+                fontWeight: FontWeight.w500,
+              ),
         ),
       ],
     );
@@ -393,8 +392,8 @@ class _LoginPageState extends State<LoginPage> {
         Text(
           "By continuing, you agree to our",
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: const Color(0xFF718096),
-          ),
+                color: const Color(0xFF718096),
+              ),
         ),
         const SizedBox(height: 4),
         Row(
@@ -412,16 +411,16 @@ class _LoginPageState extends State<LoginPage> {
               child: Text(
                 "Terms of Service",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: const Color(0xFF4F46E5),
-                  fontWeight: FontWeight.w600,
-                ),
+                      color: const Color(0xFF4F46E5),
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
             ),
             Text(
               " and ",
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: const Color(0xFF718096),
-              ),
+                    color: const Color(0xFF718096),
+                  ),
             ),
             TextButton(
               onPressed: () {
@@ -435,9 +434,9 @@ class _LoginPageState extends State<LoginPage> {
               child: Text(
                 "Privacy Policy",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: const Color(0xFF4F46E5),
-                  fontWeight: FontWeight.w600,
-                ),
+                      color: const Color(0xFF4F46E5),
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
             ),
           ],

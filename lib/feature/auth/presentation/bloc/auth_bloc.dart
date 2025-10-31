@@ -9,12 +9,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final GoogleAuthService googleAuthService;
 
   AuthBloc(this.googleAuthService) : super(AuthInitial()) {
-  
     on<SignInWithGoogleEvent>(_onSignInWithGoogle);
     on<SignOutEvent>(_onSignOut);
     on<CheckAuthStatusEvent>(_onCheckAuthStatus);
-
-
   }
 
   Future<void> _onCheckAuthStatus(
@@ -52,12 +49,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-Future<void> _onSignOut(
-  SignOutEvent event,
-  Emitter<AuthState> emit,
-) async {
-  
-  await googleAuthService.signOut();
-  emit(AuthLoggedOut()); 
-}
+  Future<void> _onSignOut(
+    SignOutEvent event,
+    Emitter<AuthState> emit,
+  ) async {
+    await googleAuthService.signOut();
+    emit(AuthLoggedOut());
+  }
 }

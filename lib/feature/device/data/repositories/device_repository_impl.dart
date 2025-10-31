@@ -20,7 +20,6 @@ class DeviceRepositoryImpl implements DeviceRegistrationService {
         },
       );
 
-    
       final bool status = response['status'] == true;
       final String? message = response['message'];
       final String? visitorToken = response['data']?['visitorToken'];

@@ -14,7 +14,7 @@ class DioNetworkClient implements NetworkClient {
   DioNetworkClient(
     this._config,
     this._logger,
-    this._localStorage, 
+    this._localStorage,
   ) : _dio = Dio(
           BaseOptions(
             baseUrl: _config.baseUrl,
@@ -34,7 +34,6 @@ class DioNetworkClient implements NetworkClient {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-      
           final visitorToken = await _localStorage.getString('visitors_token');
           if (visitorToken != null && visitorToken.isNotEmpty) {
             options.headers['visitortoken'] = visitorToken;

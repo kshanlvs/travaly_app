@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:travaly_app/feature/auth/presentation/pages/login_page.dart';
 import 'package:travaly_app/feature/splash/presentation/screens/splash_screen.dart';
 
-import '../../feature/hotel/presentation/pages/home_page.dart';
+import 'package:travaly_app/feature/hotel/presentation/pages/home_page.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -25,9 +25,8 @@ final appRouter = GoRouter(
       path: '/home',
       name: 'home',
       pageBuilder: (context, state) => const MaterialPage(
-        // child: HomePage(),
-        child: HomePage()
-      ),
+          // child: HomePage(),
+          child: HomePage()),
     ),
   ],
 );

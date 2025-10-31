@@ -24,38 +24,38 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
-Widget build(BuildContext context) {
-  return MultiBlocListener(
-    listeners: [
-      BlocListener<DeviceBloc, DeviceState>(
-        listener: (context, deviceState) {
-          if (deviceState is DeviceRegisteredSuccess) {
-            // ✅ Only check auth after device is ready
-            context.read<AuthBloc>().add(CheckAuthStatusEvent());
-          } else if (deviceState is DeviceNotRegistered) {
-            context.read<DeviceBloc>().add(RegisterDeviceEvent());
-          } else if (deviceState is DeviceRegistrationFailed) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(deviceState.error)),
-            );
-          }
-        },
+  Widget build(BuildContext context) {
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<DeviceBloc, DeviceState>(
+          listener: (context, deviceState) {
+            if (deviceState is DeviceRegisteredSuccess) {
+              // ✅ Only check auth after device is ready
+              context.read<AuthBloc>().add(CheckAuthStatusEvent());
+            } else if (deviceState is DeviceNotRegistered) {
+              context.read<DeviceBloc>().add(RegisterDeviceEvent());
+            } else if (deviceState is DeviceRegistrationFailed) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(deviceState.error)),
+              );
+            }
+          },
+        ),
+        BlocListener<AuthBloc, AuthState>(
+          listener: (context, authState) {
+            if (authState is AuthSuccess) {
+              context.go('/home');
+            } else if (authState is AuthLoggedOut ||
+                authState is AuthInitial ||
+                authState is AuthFailure) {
+              context.go('/login');
+            }
+          },
+        ),
+      ],
+      child: const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
       ),
-   BlocListener<AuthBloc, AuthState>(
-  listener: (context, authState) {
-    if (authState is AuthSuccess) {
-      context.go('/home');
-    } else if (authState is AuthLoggedOut ||
-               authState is AuthInitial ||
-               authState is AuthFailure) {
-      context.go('/login');
-    }
-  },
-),
-    ],
-    child: const Scaffold(
-      body: Center(child: CircularProgressIndicator()),
-    ),
-  );
-}
+    );
+  }
 }

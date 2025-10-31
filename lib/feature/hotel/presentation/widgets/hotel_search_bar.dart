@@ -24,7 +24,7 @@ class _HotelSearchBarState extends State<HotelSearchBar> {
   void initState() {
     super.initState();
     _controller.text = widget.initialQuery;
-    
+
     // Listen to focus changes
     _focusNode.addListener(_onFocusChange);
   }
@@ -80,7 +80,6 @@ class _HotelSearchBarState extends State<HotelSearchBar> {
           ],
           border: Border.all(
             color: Colors.grey.withOpacity(0.3),
-            width: 1,
           ),
         ),
         child: TextField(

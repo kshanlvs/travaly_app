@@ -44,17 +44,14 @@ class HotelRepositoryImpl implements HotelRepository {
       final response = await dio.post(
         '/public/v1/', // Empty string if base URL is in NetworkClient
         data: request.toJson(),
-          headers: {
+        headers: {
           'authtoken': '71523fdd8d26f585315b4233e39d9263',
         },
-       
       );
-
-   
 
       // Parse response using the main HotelModel
       final hotelModel = HotelModel.fromJson(response);
-      
+
       // Check if the API call was successful
       if (hotelModel.status == true) {
         final hotels = hotelModel.data ?? [];

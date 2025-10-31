@@ -9,16 +9,14 @@ import 'package:travaly_app/core/device/presentation/bloc/device_bloc.dart';
 final slDevice = GetIt.instance;
 
 void setupDeviceLocator() {
-  // ✅ Core dependencies
-  slDevice.registerLazySingleton<SharedPrefsStorage>(() => SharedPrefsStorage());
+  slDevice
+      .registerLazySingleton<SharedPrefsStorage>(() => SharedPrefsStorage());
   slDevice.registerLazySingleton<DeviceInfoService>(() => DeviceInfoService());
 
-  // ✅ Repository
   slDevice.registerLazySingleton<DeviceRegistrationService>(
     () => DeviceRepositoryImpl(slDevice<NetworkClient>()),
   );
 
-  // ✅ Bloc — inject all three dependencies
   slDevice.registerFactory<DeviceBloc>(
     () => DeviceBloc(
       slDevice<DeviceRegistrationService>(),

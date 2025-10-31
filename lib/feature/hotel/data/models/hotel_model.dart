@@ -63,9 +63,11 @@ class HotelData {
       propertyImage: json['propertyImage'],
       propertyCode: json['propertyCode'],
       propertyType: json['propertyType'],
-      propertyPoliciesAndAmmenities: json['propertyPoliciesAndAmmenities'] != null
-          ? PropertyPoliciesAndAmmenities.fromJson(json['propertyPoliciesAndAmmenities'])
-          : null,
+      propertyPoliciesAndAmmenities:
+          json['propertyPoliciesAndAmmenities'] != null
+              ? PropertyPoliciesAndAmmenities.fromJson(
+                  json['propertyPoliciesAndAmmenities'])
+              : null,
       markedPrice: json['markedPrice'] != null
           ? MarkedPrice.fromJson(json['markedPrice'])
           : null,
@@ -90,7 +92,8 @@ class HotelData {
     data['propertyCode'] = propertyCode;
     data['propertyType'] = propertyType;
     if (propertyPoliciesAndAmmenities != null) {
-      data['propertyPoliciesAndAmmenities'] = propertyPoliciesAndAmmenities!.toJson();
+      data['propertyPoliciesAndAmmenities'] =
+          propertyPoliciesAndAmmenities!.toJson();
     }
     if (markedPrice != null) {
       data['markedPrice'] = markedPrice!.toJson();

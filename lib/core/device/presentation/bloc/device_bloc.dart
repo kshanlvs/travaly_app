@@ -5,6 +5,7 @@ import 'package:travaly_app/feature/device/domain/repositories/device_repository
 
 part 'device_event.dart';
 part 'device_state.dart';
+
 class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
   final DeviceRegistrationService _deviceService;
   final SharedPrefsStorage _localStorage;
@@ -21,7 +22,8 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
   Future<void> _onCheckDeviceRegistration(
       CheckDeviceRegistrationEvent event, Emitter<DeviceState> emit) async {
     emit(DeviceLoading());
-    final isRegistered = await _localStorage.getBool('device_registered') ?? false;
+    final isRegistered =
+        await _localStorage.getBool('device_registered') ?? false;
     final visitorsToken = await _localStorage.getString('visitors_token') ?? '';
     if (isRegistered) {
       emit(DeviceRegisteredSuccess(visitorsToken));
@@ -48,6 +50,4 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
       emit(DeviceRegistrationFailed(e.toString()));
     }
   }
-
 }
-
