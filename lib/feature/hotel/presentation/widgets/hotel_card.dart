@@ -169,8 +169,7 @@ class HotelCard extends StatelessWidget {
                   ),
                   const SizedBox(width: AppConstants.spacingXS),
                   Text(
-                    '${hotel.googleReview?.data?.overallRating?.
-                    toStringAsFixed(1)}',
+                    '${hotel.googleReview?.data?.overallRating?.toStringAsFixed(1)}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: AppConstants.fontSizeS,

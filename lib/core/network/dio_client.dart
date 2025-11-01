@@ -3,7 +3,7 @@ import 'package:logger/logger.dart';
 import 'package:travaly_app/core/config/app_config.dart';
 import 'package:travaly_app/core/network/network_client.dart';
 import 'package:travaly_app/core/network/network_exception.dart';
-import 'package:travaly_app/core/storage/shared_preference_storage.dart'; // Import your storage
+import 'package:travaly_app/core/storage/shared_preference_storage.dart';
 
 class DioNetworkClient implements NetworkClient {
   final Dio _dio;
@@ -23,7 +23,7 @@ class DioNetworkClient implements NetworkClient {
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json',
-              'X-API-Key': _config.apiKey,
+              'authtoken': _config.authToken
             },
           ),
         ) {

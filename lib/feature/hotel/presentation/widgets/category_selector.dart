@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travaly_app/core/constants/app_constants.dart';
+import 'package:travaly_app/feature/hotel/domain/enum/hotel_category.dart';
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_bloc.dart';
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_event.dart';
 import 'package:travaly_app/feature/hotel/presentation/widgets/category_button.dart';
@@ -13,15 +14,45 @@ class CategorySelector extends StatefulWidget {
 }
 
 class _CategorySelectorState extends State<CategorySelector> {
-  String selectedCategory = AppText.hotel;
+  HotelCategory selectedCategory = HotelCategory.hotel;
 
-  final List<String> categories = [
-    AppText.hotel,
-    AppText.resorts,
-    AppText.homeStay,
-    AppText.campAndSites,
-    AppText.any,
+  final List<HotelCategory> categories = [
+    HotelCategory.hotel,
+    HotelCategory.resort,
+    HotelCategory.homeStay,
+    HotelCategory.campSites,
+    HotelCategory.any,
   ];
+
+  String getCategoryLabel(HotelCategory category) {
+    switch (category) {
+      case HotelCategory.hotel:
+        return 'Hotel';
+      case HotelCategory.resort:
+        return 'Resort';
+      case HotelCategory.homeStay:
+        return 'Home Stay';
+      case HotelCategory.campSites:
+        return 'Camp & Sites';
+      case HotelCategory.any:
+        return 'Any';
+    }
+  }
+
+  String getEntityType(HotelCategory category) {
+    switch (category) {
+      case HotelCategory.hotel:
+        return 'hotel';
+      case HotelCategory.resort:
+        return 'resort';
+      case HotelCategory.homeStay:
+        return 'Home Stay';
+      case HotelCategory.campSites:
+        return 'Camp_sites/tent';
+      case HotelCategory.any:
+        return 'Any';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +69,20 @@ class _CategorySelectorState extends State<CategorySelector> {
             scrollDirection: Axis.horizontal,
             itemCount: categories.length,
             itemBuilder: (context, index) {
-              final label = categories[index];
+              final category = categories[index];
+              final label = getCategoryLabel(category);
+
               return CategoryButton(
                 label: label,
-                isSelected: selectedCategory == label,
+                isSelected: selectedCategory == category,
                 onPressed: () {
                   setState(() {
-                    selectedCategory = label;
+                    selectedCategory = category;
                   });
 
                   context.read<HotelBloc>().add(
                         LoadPopularHotelsEvent(
-                          entityType: label,
+                          entityType: getEntityType(category),
                           searchTypeInfo: {
                             'country': 'India',
                             'state': 'Jharkhand',

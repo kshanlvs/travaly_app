@@ -4,7 +4,6 @@ abstract class HotelEvent {
   const HotelEvent();
 }
 
-// Event to load popular hotels
 class LoadPopularHotelsEvent extends HotelEvent {
   final int limit;
   final String entityType;
@@ -14,8 +13,8 @@ class LoadPopularHotelsEvent extends HotelEvent {
 
   const LoadPopularHotelsEvent({
     this.limit = 10,
-    this.entityType = 'Home Stay',
-    this.searchType = 'byState',
+    this.entityType = 'hotel',
+    this.searchType = 'byCity',
     required this.searchTypeInfo,
     this.currency = 'INR',
   });
@@ -42,7 +41,6 @@ class LoadPopularHotelsEvent extends HotelEvent {
   }
 }
 
-// Event to search hotels
 class SearchHotelsEvent extends HotelEvent {
   final String query;
 
@@ -59,7 +57,6 @@ class SearchHotelsEvent extends HotelEvent {
   int get hashCode => query.hashCode;
 }
 
-// Event to clear search and show popular hotels again
 class ClearSearchEvent extends HotelEvent {
   const ClearSearchEvent();
 }

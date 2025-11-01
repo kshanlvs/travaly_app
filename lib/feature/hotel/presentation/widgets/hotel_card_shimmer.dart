@@ -24,7 +24,6 @@ class HotelCardShimmer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image placeholder
             Container(
               height: 180,
               width: double.infinity,
@@ -36,14 +35,11 @@ class HotelCardShimmer extends StatelessWidget {
                 ),
               ),
             ),
-
-            // Content area
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Title
                   Container(
                     height: 20,
                     width: 200,
@@ -53,8 +49,6 @@ class HotelCardShimmer extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-
-                  // Location
                   Container(
                     height: 16,
                     width: 150,
@@ -64,12 +58,9 @@ class HotelCardShimmer extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 12),
-
-                  // Rating and price row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Rating
                       Container(
                         height: 20,
                         width: 80,
@@ -78,8 +69,6 @@ class HotelCardShimmer extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
-
-                      // Price
                       Container(
                         height: 20,
                         width: 60,

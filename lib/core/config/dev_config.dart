@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:travaly_app/core/config/app_config.dart';
 
 class DevConfig implements AppConfig {
@@ -15,4 +16,8 @@ class DevConfig implements AppConfig {
 
   @override
   int get receiveTimeout => 30000;
+
+  @override
+  String get authToken =>
+      dotenv.get('AUTH_TOKEN', fallback: '71523fdd8d26f585315b4233e39d9263');
 }

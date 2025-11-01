@@ -9,6 +9,7 @@ abstract class AppConfig {
   bool get enableLogging;
   int get connectTimeout;
   int get receiveTimeout;
+  String get authToken;
 
   factory AppConfig() {
     switch (Environment.current) {

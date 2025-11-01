@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travaly_app/core/constants/app_constants.dart';
-import 'package:travaly_app/feature/hotel/presentation/widgets/user_greeting.dart';
+import 'package:travaly_app/feature/auth/presentation/bloc/user_cubit.dart';
+import 'package:travaly_app/feature/auth/presentation/bloc/user_state.dart';
 import 'package:travaly_app/feature/hotel/presentation/widgets/logout_dialog.dart';
+import 'package:travaly_app/feature/hotel/presentation/widgets/user_greeting.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -48,7 +51,18 @@ class HeaderSection extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const UserGreeting(userName: 'Dr Hohn Deo'),
+                  BlocBuilder<UserCubit, UserState>(
+                    builder: (context, state) {
+                      if (state is UserLoading) {
+                        return const CircularProgressIndicator(
+                            color: AppColors.white);
+                      } else if (state is UserLoaded) {
+                        return UserGreeting(userName: state.userName);
+                      } else {
+                        return const UserGreeting(userName: 'Guest');
+                      }
+                    },
+                  ),
                   IconButton(
                     icon: const Icon(Icons.logout, color: AppColors.white),
                     tooltip: AppText.logout,

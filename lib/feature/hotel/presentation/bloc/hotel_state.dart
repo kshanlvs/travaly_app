@@ -4,17 +4,14 @@ abstract class HotelState {
   const HotelState();
 }
 
-// Initial state - when the bloc is first created
 class HotelInitial extends HotelState {
   const HotelInitial();
 }
 
-// Loading state - when data is being fetched
 class HotelLoading extends HotelState {
   const HotelLoading();
 }
 
-// Loaded state - when data is successfully fetched
 class HotelLoaded extends HotelState {
   final List<HotelData> hotels;
 
@@ -31,7 +28,6 @@ class HotelLoaded extends HotelState {
   int get hashCode => hotels.hashCode;
 }
 
-// Error state - when something goes wrong
 class HotelError extends HotelState {
   final String message;
 
@@ -46,4 +42,28 @@ class HotelError extends HotelState {
 
   @override
   int get hashCode => message.hashCode;
+}
+
+class SearchHotelsLoaded extends HotelState {
+  final List<HotelData> hotels;
+  final String searchQuery;
+
+  const SearchHotelsLoaded({
+    required this.hotels,
+    required this.searchQuery,
+  });
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is SearchHotelsLoaded &&
+        listEquals(other.hotels, hotels) &&
+        other.searchQuery == searchQuery;
+  }
+
+  @override
+  int get hashCode {
+    return hotels.hashCode ^ searchQuery.hashCode;
+  }
 }

@@ -101,14 +101,14 @@ class AppText {
   static const String register = 'Register';
 
   static const String hotels = 'Hotels';
-  static const String hotel = 'Hotel';
+  static const String hotel = 'hotel';
   static const String popularHotels = 'Popular Hotels';
   static const String luxuryHotel = 'Luxury Hotel';
   static const String yourGatewayTo = 'Your Gateway to';
   static const String searchYourHotel = 'Search Your Hotel';
   static const String villa = 'Villa';
   static const String popular = 'Popular';
-  static const String resorts = 'Resorts';
+  static const String resorts = 'resort';
   static const String apartments = 'Apartments';
 
   static const String petsAllowed = 'Pets Allowed';
@@ -180,7 +180,7 @@ class AppText {
   static const String checkOut = 'Check-out';
   static const String duration = 'Duration';
 
-  static const String goodMorning = 'Good Morning';
+  static const String hello = 'Hello';
   static const String goodAfternoon = 'Good Afternoon';
   static const String goodEvening = 'Good Evening';
   static const String welcome = 'Welcome';
@@ -191,7 +191,7 @@ class AppText {
   static const String support = 'Support';
   static const String about = 'About';
   static const String homeStay = "Home Stay";
-  static const String campAndSites = "Camp Sites/Tent";
+  static const String campAndSites = "Camp_sites/tent";
   static const String any = "Any";
 }
 

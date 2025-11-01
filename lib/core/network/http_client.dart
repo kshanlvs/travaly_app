@@ -38,7 +38,7 @@ class HttpNetworkClient implements NetworkClient {
       );
 
       if (_config.enableLogging) {
-        _logger.d('🌐 HTTP GET: $uri');
+        _logger.d('HTTP GET: $uri');
       }
 
       final response = await _client
@@ -69,7 +69,7 @@ class HttpNetworkClient implements NetworkClient {
       );
 
       if (_config.enableLogging) {
-        _logger.d('🌐 HTTP POST: $uri\nData: $data');
+        _logger.d('HTTP POST: $uri\nData: $data');
       }
 
       final response = await _client
@@ -87,8 +87,6 @@ class HttpNetworkClient implements NetworkClient {
       throw _handleError(e);
     }
   }
-
-  // Implement put and delete similarly...
 
   dynamic _handleResponse(http.Response response) {
     if (_config.enableLogging) {

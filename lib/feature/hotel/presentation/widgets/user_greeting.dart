@@ -15,7 +15,7 @@ class UserGreeting extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppText.goodMorning,
+          AppText.hello,
           style: TextStyle(
             color: AppColors.white.withOpacity(0.7),
             fontSize: AppConstants.fontSizeM,

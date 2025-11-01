@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travaly_app/core/dependency_injection/service_locator.dart';
 import 'package:travaly_app/core/constants/app_constants.dart';
 import 'package:travaly_app/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:travaly_app/feature/hotel/data/repositories/hotel_repositories.dart';
+import 'package:travaly_app/feature/hotel/data/repositories/hotel_search_repository.dart';
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_bloc.dart';
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_event.dart';
 import 'package:travaly_app/feature/hotel/presentation/widgets/home_content.dart';
@@ -25,7 +27,9 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.scaffoldBackground,
         body: BlocProvider(
-          create: (context) => HotelBloc(hotelRepository: sl<HotelRepository>())
+          create: (context) => HotelBloc(
+              hotelRepository: sl<HotelRepository>(),
+              hotelSearchRepository: sl<HotelSearchRepository>())
             ..add(
               const LoadPopularHotelsEvent(
                 searchTypeInfo: {

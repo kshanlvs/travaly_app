@@ -254,7 +254,9 @@ class StaticPrice {
 
   factory StaticPrice.fromJson(Map<String, dynamic> json) {
     return StaticPrice(
-      amount: json['amount'],
+      amount: (json['amount'] is double)
+          ? (json['amount'] as double).toInt()
+          : json['amount'],
       displayAmount: json['displayAmount'],
       currencyAmount: json['currencyAmount'],
       currencySymbol: json['currencySymbol'],

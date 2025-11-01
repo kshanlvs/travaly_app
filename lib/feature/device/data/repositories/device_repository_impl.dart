@@ -25,11 +25,9 @@ class DeviceRepositoryImpl implements DeviceRegistrationService {
       final String? visitorToken = response['data']?['visitorToken'];
 
       if (status && visitorToken != null && visitorToken.isNotEmpty) {
-        // Successful registration — return the token
         return visitorToken;
       }
 
-      // ✅ Handle success messages that may not strictly use 'status'
       if (message?.toLowerCase().contains('device registered successfully') ??
           false) {
         return visitorToken ?? '';
