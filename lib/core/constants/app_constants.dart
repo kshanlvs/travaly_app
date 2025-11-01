@@ -1,12 +1,9 @@
-// lib/core/constants/app_constants.dart
 
 import 'package:flutter/material.dart';
 
 class AppConstants {
-  // App Information
   static const String appName = 'Travaly App';
 
-  // Spacing Constants
   static const double spacingXS = 4.0;
   static const double spacingS = 8.0;
   static const double spacingM = 12.0;
@@ -15,7 +12,6 @@ class AppConstants {
   static const double spacingXXL = 24.0;
   static const double spacingXXXL = 32.0;
 
-  // Border Radius
   static const double borderRadiusXS = 4.0;
   static const double borderRadiusS = 8.0;
   static const double borderRadiusM = 12.0;
@@ -23,13 +19,11 @@ class AppConstants {
   static const double borderRadiusXL = 20.0;
   static const double borderRadiusXXL = 24.0;
 
-  // Border Widths
   static const double borderWidthXS = 0.5;
   static const double borderWidthS = 1.0;
   static const double borderWidthM = 1.5;
   static const double borderWidthL = 2.0;
 
-  // Font Sizes
   static const double fontSizeXS = 10.0;
   static const double fontSizeS = 12.0;
   static const double fontSizeM = 14.0;
@@ -41,7 +35,6 @@ class AppConstants {
   static const double fontSizeDisplayM = 32.0;
   static const double fontSizeDisplayL = 36.0;
 
-  // Icon Sizes
   static const double iconSizeXS = 12.0;
   static const double iconSizeS = 16.0;
   static const double iconSizeM = 20.0;
@@ -49,13 +42,11 @@ class AppConstants {
   static const double iconSizeXL = 28.0;
   static const double iconSizeXXL = 32.0;
 
-  // Button Sizes
   static const double buttonHeightXS = 32.0;
   static const double buttonHeightS = 40.0;
   static const double buttonHeightM = 48.0;
   static const double buttonHeightL = 56.0;
 
-  // Image Sizes
   static const double imageHeightXS = 60.0;
   static const double imageHeightS = 80.0;
   static const double imageHeightM = 120.0;
@@ -63,26 +54,22 @@ class AppConstants {
   static const double imageHeightXL = 200.0;
   static const double imageHeightXXL = 240.0;
 
-  // Card Sizes
   static const double cardElevationS = 2.0;
   static const double cardElevationM = 4.0;
   static const double cardElevationL = 8.0;
 
-  // Animation Durations
   static const Duration durationXS = Duration(milliseconds: 100);
   static const Duration durationS = Duration(milliseconds: 200);
   static const Duration durationM = Duration(milliseconds: 300);
   static const Duration durationL = Duration(milliseconds: 500);
   static const Duration durationXL = Duration(milliseconds: 800);
 
-  // Opacity Values
   static const double opacityDisabled = 0.5;
   static const double opacityHint = 0.6;
   static const double opacitySecondary = 0.7;
 }
 
 class AppText {
-  // Common Labels
   static const String appName = 'Travaly';
   static const String home = 'Home';
   static const String book = 'Book';
@@ -102,7 +89,7 @@ class AppText {
   static const String warning = 'Warning';
   static const String info = 'Information';
 
-  // Auth Related
+
   static const String login = 'Login';
   static const String signUp = 'Sign Up';
   static const String email = 'Email';
@@ -115,7 +102,6 @@ class AppText {
   static const String signOut = 'Sign Out';
   static const String register = 'Register';
 
-  // Hotel Related
   static const String hotels = 'Hotels';
   static const String hotel = 'Hotel';
   static const String popularHotels = 'Popular Hotels';
@@ -127,7 +113,6 @@ class AppText {
   static const String resorts = 'Resorts';
   static const String apartments = 'Apartments';
 
-  // Hotel Features
   static const String petsAllowed = 'Pets Allowed';
   static const String coupleFriendly = 'Couple Friendly';
   static const String familyFriendly = 'Family Friendly';
@@ -136,14 +121,12 @@ class AppText {
   static const String freeCancellation = 'Free Cancellation';
   static const String freeCancel = 'Free Cancel';
 
-  // Price and Booking
   static const String perNight = '/ Night';
   static const String night = 'Night';
   static const String price = 'Price';
   static const String bookNow = 'Book Now';
   static const String viewDetails = 'View Details';
 
-  // Location & Address
   static const String location = 'Location';
   static const String address = 'Address';
   static const String city = 'City';
@@ -151,7 +134,6 @@ class AppText {
   static const String country = 'Country';
   static const String street = 'Street';
 
-  // Ratings & Reviews
   static const String rating = 'Rating';
   static const String reviews = 'Reviews';
   static const String excellent = 'Excellent';
@@ -160,7 +142,6 @@ class AppText {
   static const String poor = 'Poor';
   static const String terrible = 'Terrible';
 
-  // Error Messages
   static const String somethingWentWrong = 'Something went wrong';
   static const String noInternetConnection = 'No internet connection';
   static const String serverError = 'Server error';
@@ -168,18 +149,15 @@ class AppText {
   static const String notFound = 'Not found';
   static const String unknownError = 'Unknown error occurred';
 
-  // Success Messages
   static const String bookingSuccessful = 'Booking successful!';
   static const String profileUpdated = 'Profile updated successfully';
   static const String changesSaved = 'Changes saved successfully';
 
-  // Empty States
   static const String noHotelsFound = 'No hotels found';
   static const String noBookingsFound = 'No bookings found';
   static const String noResultsFound = 'No results found';
   static const String tryDifferentSearch = 'Try a different search';
 
-  // Default Values
   static const String unknownCity = 'Unknown City';
   static const String unknownProperty = 'Unknown Property';
   static const String noImage = 'No Image';
@@ -188,7 +166,6 @@ class AppText {
   static const String defaultGuests = '3 Guests';
   static const String defaultPrice = '\$798';
 
-  // Dialog Messages
   static const String areYouSure = 'Are you sure?';
   static const String confirmLogout = 'Are you sure you want to log out?';
   static const String confirmDelete =
@@ -196,7 +173,7 @@ class AppText {
   static const String thisActionCannotBeUndone =
       'This action cannot be undone.';
 
-  // Time Related
+
   static const String today = 'Today';
   static const String tomorrow = 'Tomorrow';
   static const String yesterday = 'Yesterday';
@@ -206,7 +183,6 @@ class AppText {
   static const String checkOut = 'Check-out';
   static const String duration = 'Duration';
 
-  // User Related
   static const String goodMorning = 'Good Morning';
   static const String goodAfternoon = 'Good Afternoon';
   static const String goodEvening = 'Good Evening';
@@ -217,24 +193,23 @@ class AppText {
   static const String help = 'Help';
   static const String support = 'Support';
   static const String about = 'About';
+  static const String homeStay = "Home Stay";
+  static const String campAndSites = "Camp Sites/Tent";
+  static const String any = "Any";
 }
 
 class AppColors {
-  // Primary Colors
   static const Color primaryColor = Color(0xFF2C5364);
   static const Color primaryDark = Color(0xFF0F2027);
   static const Color primaryLight = Color(0xFF3C7284);
 
-  // Secondary Colors
   static const Color secondaryColor = Color(0xFF4CAF50);
   static const Color accentColor = Color(0xFF2196F3);
 
-  // Neutral Colors
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
   static const Color transparent = Color(0x00000000);
 
-  // Gray Scale
   static const Color gray50 = Color(0xFFFAFAFA);
   static const Color gray100 = Color(0xFFF5F5F5);
   static const Color gray200 = Color(0xFFEEEEEE);
@@ -246,39 +221,24 @@ class AppColors {
   static const Color gray800 = Color(0xFF424242);
   static const Color gray900 = Color(0xFF212121);
 
-  // Semantic Colors
   static const Color successColor = Color(0xFF4CAF50);
   static const Color warningColor = Color(0xFFFF9800);
   static const Color errorColor = Color(0xFFF44336);
   static const Color infoColor = Color(0xFF2196F3);
 
-  // Background Colors
   static const Color scaffoldBackground = Color(0xFFFFFFFF);
   static const Color cardBackground = Color(0xFFFFFFFF);
   static const Color dialogBackground = Color(0xFFFFFFFF);
 
-  // Text Colors
   static const Color textPrimary = Color(0xFF000000);
   static const Color textSecondary = Color(0xFF616161);
   static const Color textHint = Color(0xFF9E9E9E);
   static const Color textDisabled = Color(0xFFBDBDBD);
   static const Color textInverse = Color(0xFFFFFFFF);
 
-  // Border Colors
   static const Color borderLight = Color(0xFFE0E0E0);
   static const Color borderMedium = Color(0xFFBDBDBD);
   static const Color borderDark = Color(0xFF757575);
 }
 
-class AppAssets {
-  // Image paths
-  static const String logo = 'assets/images/logo.png';
-  static const String placeholder = 'assets/images/placeholder.jpg';
-  static const String noImage = 'assets/images/no_image.png';
 
-  // Icon paths
-  static const String homeIcon = 'assets/icons/home.svg';
-  static const String bookIcon = 'assets/icons/book.svg';
-  static const String tripsIcon = 'assets/icons/trips.svg';
-  static const String profileIcon = 'assets/icons/profile.svg';
-}

@@ -38,7 +38,7 @@ class _HotelSearchBarState extends State<HotelSearchBar> {
   }
 
   void _onFocusChange() {
-    // You can add focus-related logic here if needed
+
   }
 
   void _onSearch(String query) {
@@ -65,62 +65,59 @@ class _HotelSearchBarState extends State<HotelSearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
-          border: Border.all(
-            color: Colors.grey.withOpacity(0.3),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
+        ],
+        border: Border.all(
+          color: Colors.grey.withOpacity(0.3),
         ),
-        child: TextField(
-          controller: _controller,
-          focusNode: _focusNode,
-          decoration: InputDecoration(
-            hintText: 'Search hotels by name, city, state, or country...',
-            hintStyle: TextStyle(
-              color: Colors.grey[600],
-              fontSize: 14,
-            ),
-            prefixIcon: Icon(
-              Icons.search,
-              color: Colors.grey[600],
-              size: 20,
-            ),
-            suffixIcon: _controller.text.isNotEmpty
-                ? IconButton(
-                    icon: Icon(
-                      Icons.clear,
-                      color: Colors.grey[600],
-                      size: 20,
-                    ),
-                    onPressed: _onClear,
-                  )
-                : null,
-            border: InputBorder.none,
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 16,
-            ),
-            isDense: true,
-          ),
-          style: const TextStyle(
+      ),
+      child: TextField(
+        controller: _controller,
+        focusNode: _focusNode,
+        decoration: InputDecoration(
+          hintText: 'Search hotels by name, city, state, or country...',
+          hintStyle: TextStyle(
+            color: Colors.grey[600],
             fontSize: 14,
-            color: Colors.black87,
           ),
-          onChanged: _onTextChanged,
-          onSubmitted: _onSearch,
-          textInputAction: TextInputAction.search,
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.grey[600],
+            size: 20,
+          ),
+          suffixIcon: _controller.text.isNotEmpty
+              ? IconButton(
+                  icon: Icon(
+                    Icons.clear,
+                    color: Colors.grey[600],
+                    size: 20,
+                  ),
+                  onPressed: _onClear,
+                )
+              : null,
+          border: InputBorder.none,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 16,
+          ),
+          isDense: true,
         ),
+        style: const TextStyle(
+          fontSize: 14,
+          color: Colors.black87,
+        ),
+        onChanged: _onTextChanged,
+        onSubmitted: _onSearch,
+        textInputAction: TextInputAction.search,
       ),
     );
   }

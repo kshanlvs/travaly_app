@@ -14,7 +14,7 @@ class LoadPopularHotelsEvent extends HotelEvent {
 
   const LoadPopularHotelsEvent({
     this.limit = 10,
-    this.entityType = 'hotel',
+    this.entityType = 'Home Stay',
     this.searchType = 'byState',
     required this.searchTypeInfo,
     this.currency = 'INR',

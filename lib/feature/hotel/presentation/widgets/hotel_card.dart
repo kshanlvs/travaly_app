@@ -22,7 +22,7 @@ class HotelCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: AppConstants.imageHeightM,
+            height: AppConstants.imageHeightL,
             width: double.infinity,
             child: ClipRRect(
               borderRadius: const BorderRadius.only(
@@ -105,7 +105,7 @@ class HotelCard extends StatelessWidget {
           imageUrl: imageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
-          height: AppConstants.imageHeightM,
+          height: AppConstants.imageHeightL,
           placeholder: (context, url) => _buildLoadingShimmer(),
           errorWidget: (context, url, error) => _buildPlaceholderImage(),
           fadeInDuration: AppConstants.durationM,

@@ -9,7 +9,5 @@ void initHotelServiceLocator() {
   slHotel.registerLazySingleton<HotelRepository>(() => HotelRepositoryImpl(
         dio: slHotel<NetworkClient>(),
       ));
-  slHotel.registerLazySingleton<HotelRepository>(() => HotelRepositoryImpl(
-        dio: slHotel<NetworkClient>(),
-      ));
+
 }
