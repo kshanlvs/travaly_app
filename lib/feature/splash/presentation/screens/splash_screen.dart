@@ -19,9 +19,10 @@ class _SplashScreenState extends State<SplashScreen> {
     context.read<DeviceBloc>().add(CheckDeviceRegistrationEvent());
   }
 
-  void _retryRegistration() {
-    context.read<DeviceBloc>().add(RegisterDeviceEvent());
-  }
+  // todo: handle retry registration
+  // void _retryRegistration() {
+  //   context.read<DeviceBloc>().add(RegisterDeviceEvent());
+  // }
 
   @override
   Widget build(BuildContext context) {

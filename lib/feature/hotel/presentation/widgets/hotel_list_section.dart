@@ -39,12 +39,11 @@ class HotelListSection extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) => Padding(
-          
-          padding:  const EdgeInsets.only(
-            top:  AppConstants.spacingL,
-                  left:  AppConstants.spacingXXL,
-           right:AppConstants.spacingXXL,
-             bottom: AppConstants.spacingL),
+          padding: const EdgeInsets.only(
+              top: AppConstants.spacingL,
+              left: AppConstants.spacingXXL,
+              right: AppConstants.spacingXXL,
+              bottom: AppConstants.spacingL),
           child: HotelCard(hotel: hotels[index]),
         ),
         childCount: hotels.length,
@@ -54,14 +53,14 @@ class HotelListSection extends StatelessWidget {
 
   void _retryLoadHotels(BuildContext context) {
     context.read<HotelBloc>().add(
-      const LoadPopularHotelsEvent(
-        searchTypeInfo: {
-          'country': 'India',
-          'state': 'Jharkhand',
-          'city': 'Jamshedpur',
-        },
-      ),
-    );
+          const LoadPopularHotelsEvent(
+            searchTypeInfo: {
+              'country': 'India',
+              'state': 'Jharkhand',
+              'city': 'Jamshedpur',
+            },
+          ),
+        );
   }
 }
 
@@ -72,13 +71,13 @@ class HotelListShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: List.generate(
-        3, 
+        3,
         (index) => const Padding(
-               padding:  const EdgeInsets.only(
-            top:  AppConstants.spacingL,
-                  left:  AppConstants.spacingXXL,
-           right:AppConstants.spacingXXL,
-             bottom: AppConstants.spacingL),
+          padding: const EdgeInsets.only(
+              top: AppConstants.spacingL,
+              left: AppConstants.spacingXXL,
+              right: AppConstants.spacingXXL,
+              bottom: AppConstants.spacingL),
           child: HotelCardShimmer(),
         ),
       ),

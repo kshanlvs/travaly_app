@@ -6,12 +6,12 @@ class EmptyHotelState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Padding(
-        padding: const EdgeInsets.all(AppConstants.spacingXXL),
+        padding: EdgeInsets.all(AppConstants.spacingXXL),
         child: Text(
           AppText.noHotelsFound,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: AppConstants.fontSizeL,
             color: AppColors.textSecondary,
           ),

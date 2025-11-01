@@ -91,7 +91,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
         const SizedBox(height: 16),
         Text(
-          "Sign in now and keep earning exciting rewards for your travel experiences",
+          "Sign in now and keep earning exciting rewards for"
+          "your travel experiences",
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: const Color(0xFF718096),

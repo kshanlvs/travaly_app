@@ -48,7 +48,8 @@ class HotelErrorWidget extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.infoColor,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppConstants.borderRadiusM),
+                  borderRadius:
+                      BorderRadius.circular(AppConstants.borderRadiusM),
                 ),
               ),
             ),

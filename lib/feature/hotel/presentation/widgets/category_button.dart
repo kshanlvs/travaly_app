@@ -20,7 +20,8 @@ class CategoryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: isSelected ? AppColors.primaryColor : AppColors.cardBackground,
+          backgroundColor:
+              isSelected ? AppColors.primaryColor : AppColors.cardBackground,
           foregroundColor: isSelected ? AppColors.white : AppColors.textPrimary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppConstants.borderRadiusM),

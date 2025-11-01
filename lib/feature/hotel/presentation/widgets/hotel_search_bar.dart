@@ -37,9 +37,7 @@ class _HotelSearchBarState extends State<HotelSearchBar> {
     super.dispose();
   }
 
-  void _onFocusChange() {
-
-  }
+  void _onFocusChange() {}
 
   void _onSearch(String query) {
     if (query.isNotEmpty) {

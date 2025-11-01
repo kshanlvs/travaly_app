@@ -8,6 +8,7 @@ import 'package:travaly_app/feature/hotel/data/repositories/hotel_repositories.d
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_bloc.dart';
 import 'package:travaly_app/feature/hotel/presentation/bloc/hotel_event.dart';
 import 'package:travaly_app/feature/hotel/presentation/widgets/home_content.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 

@@ -15,11 +15,10 @@ class SearchSection extends StatelessWidget {
           AppConstants.spacingXXL,
           AppConstants.spacingL,
         ),
-        child:  HotelSearchBar(onClear: () {
-          
-        },onSearch: (p0) {
-          
-        },),
+        child: HotelSearchBar(
+          onClear: () {},
+          onSearch: (p0) {},
+        ),
       ),
     );
   }

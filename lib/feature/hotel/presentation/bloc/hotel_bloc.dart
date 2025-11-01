@@ -15,7 +15,6 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
     // on<ClearSearchEvent>(_onClearSearch);
   }
 
-
   Future<void> _onLoadPopularHotels(
     LoadPopularHotelsEvent event,
     Emitter<HotelState> emit,
@@ -24,7 +23,6 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
     emit(const HotelLoading());
 
     try {
-
       final List<HotelData> hotels = await hotelRepository.getPopularHotels(
         limit: event.limit,
         entityType: event.entityType,
@@ -34,66 +32,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
       );
       emit(HotelLoaded(hotels));
     } catch (e) {
- 
       emit(HotelError(e.toString()));
     }
   }
 
-
-  // Future<void> _onSearchHotels(
-  //   SearchHotelsEvent event,
-  //   Emitter<HotelState> emit,
-  // ) async {
-  //   // Don't search if query is empty
-  //   if (event.query.isEmpty) {
-  //     add(const ClearSearchEvent());
-  //     return;
-  //   }
-
-  //   emit(const HotelLoading());
-
-  //   try {
-
-  //     final List<HotelData> hotels = await hotelRepository.getPopularHotels(
-  //       limit: 10,
-  //       entityType: 'hotel',
-  //       searchType: 'byState',
-  //       searchTypeInfo: {
-  //         'country': 'India',
-  //         'state': 'Jharkhand',
-  //         'city': 'Jamshedpur',
-  //       },
-  //       currency: 'INR',
-  //     );
-
-    
-  //     final List<HotelData> filteredHotels = hotels.where((hotel) {
-  //       final String name = hotel.propertyName?.toLowerCase() ?? '';
-  //       final String city = hotel.propertyAddress?.city?.toLowerCase() ?? '';
-  //       final String state = hotel.propertyAddress?.state?.toLowerCase() ?? '';
-  //       final String country =
-  //           hotel.propertyAddress?.country?.toLowerCase() ?? '';
-  //       final String query = event.query.toLowerCase();
-
-      
-  //       return name.contains(query) ||
-  //           city.contains(query) ||
-  //           state.contains(query) ||
-  //           country.contains(query);
-  //     }).toList();
-
-  //     emit(HotelLoaded(filteredHotels));
-  //   } catch (e) {
-  //     emit(HotelError(e.toString()));
-  //   }
-  // }
-
-  // // Handler for clearing search
-  // void _onClearSearch(
-  //   ClearSearchEvent event,
-  //   Emitter<HotelState> emit,
-  // ) {
-  //   // Go back to initial state
-  //   emit(const HotelInitial());
-  // }
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppConstants {
@@ -89,7 +88,6 @@ class AppText {
   static const String warning = 'Warning';
   static const String info = 'Information';
 
-
   static const String login = 'Login';
   static const String signUp = 'Sign Up';
   static const String email = 'Email';
@@ -173,7 +171,6 @@ class AppText {
   static const String thisActionCannotBeUndone =
       'This action cannot be undone.';
 
-
   static const String today = 'Today';
   static const String tomorrow = 'Tomorrow';
   static const String yesterday = 'Yesterday';
@@ -240,5 +237,3 @@ class AppColors {
   static const Color borderMedium = Color(0xFFBDBDBD);
   static const Color borderDark = Color(0xFF757575);
 }
-
-
